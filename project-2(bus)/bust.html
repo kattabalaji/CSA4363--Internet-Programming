@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus System Registration</title>
+     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+	 table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .seat-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .success-message {
+            color: #4caf50;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .user-details {
+            margin-top: 20px;
+        }
+
+        .person {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm" onsubmit="handleRegistration(event)">
+        <h2>Bus System Registration</h2>
+        
+        <div id="personsContainer">
+            <div class="person">
+                <h3>Person 1</h3>
+                <label for="name1">Name:</label>
+                <input type="text" id="name1" name="name1" required>
+
+                <label for="email1">Email:</label>
+                <input type="email" id="email1" name="email1" required>
+
+                <label for="contact1">Contact Number:</label>
+                <input type="tel" id="contact1" name="contact1" required>
+
+                <label for="date1">Date of Travel:</label>
+                <input type="date" id="date1" name="date1" required>
+
+                <label for="fromCity1">From City:</label>
+                <input type="text" id="fromCity1" name="fromCity1" required>
+
+                <label for="toCity1">Destination City:</label>
+                <input type="text" id="toCity1" name="toCity1" required>
+
+                <label for="seatSelection1">Seat Selection:</label>
+                <div>
+                    <input type="checkbox" id="seat1A" name="seatSelection1" value="1A">
+                    <label class="seat-label" for="seat1A">1A</label>
+                    
+                    <input type="checkbox" id="seat1B" name="seatSelection1" value="1B">
+                    <label class="seat-label" for="seat1B">1B</label>
+
+                    <!-- Add more seat options as needed -->
+                </div>
+            </div>
+        </div>
+
+        <button type="button" onclick="addPerson()">Add Another Person</button>
+        <button type="submit">Register</button>
+
+        <p class="success-message" id="successMessage">Registered successfully!</p>
+
+        <table id="userDetailsTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Date of Travel</th>
+                    <th>From City</th>
+                    <th>Destination City</th>
+                    <th>Selected Seats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User details will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <script>
+            let personCount = 1;
+
+            function addPerson() {
+                personCount++;
+                const personsContainer = document.getElementById('personsContainer');
+
+                const personDiv = document.createElement('div');
+                personDiv.classList.add('person');
+                personDiv.innerHTML = `<h3>Person ${personCount}</h3>
+                    <label for="name${personCount}">Name:</label>
+                    <input type="text" id="name${personCount}" name="name${personCount}" required>
+
+                    <label for="email${personCount}">Email:</label>
+                    <input type="email" id="email${personCount}" name="email${personCount}" required>
+
+                    <label for="contact${personCount}">Contact Number:</label>
+                    <input type="tel" id="contact${personCount}" name="contact${personCount}" required>
+
+                    <label for="date${personCount}">Date of Travel:</label>
+                    <input type="date" id="date${personCount}" name="date${personCount}" required>
+
+                    <label for="fromCity${personCount}">From City:</label>
+                    <input type="text" id="fromCity${personCount}" name="fromCity${personCount}" required>
+
+                    <label for="toCity${personCount}">Destination City:</label>
+                    <input type="text" id="toCity${personCount}" name="toCity${personCount}" required>
+
+                    <label for="seatSelection${personCount}">Seat Selection:</label>
+                    <div>
+                        <input type="checkbox" id="seat${personCount}A" name="seatSelection${personCount}" value="${personCount}A">
+                        <label class="seat-label" for="seat${personCount}A">${personCount}A</label>
+                        
+                        <input type="checkbox" id="seat${personCount}B" name="seatSelection${personCount}" value="${personCount}B">
+                        <label class="seat-label" for="seat${personCount}B">${personCount}B</label>
+
+                        <!-- Add more seat options as needed -->
+                    </div>`;
+
+                personsContainer.appendChild(personDiv);
+            }
+
+            function handleRegistration(event) {
+                event.preventDefault();
+
+                // Loop through each person and gather their details
+                let userDetails = '';
+                for (let i = 1; i <= personCount; i++) {
+                    const name = document.getElementById(`name${i}`).value;
+                    const email = document.getElementById(`email${i}`).value;
+                    const contact = document.getElementById(`contact${i}`).value;
+                    const date = document.getElementById(`date${i}`).value;
+                    const fromCity = document.getElementById(`fromCity${i}`).value;
+                    const toCity = document.getElementById(`toCity${i}`).value;
+
+                    // Collect selected seats
+                    const selectedSeats = [];
+                    const seatCheckboxes = document.getElementsByName(`seatSelection${i}`);
+                    seatCheckboxes.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            selectedSeats.push(checkbox.value);
+                        }
+                    });
+
+                    // Append the user details to the table
+                    userDetails += `<tr>
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>${contact}</td>
+                        <td>${date}</td>
+                        <td>${fromCity}</td>
+                        <td>${toCity}</td>
+                        <td>${selectedSeats.join(', ')}</td>
+                    </tr>`;
+                }
+
+                // Display success message
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Display user details table
+                const userDetailsTable = document.getElementById('userDetailsTable');
+                userDetailsTable.style.display = 'table';
+                const tbody = userDetailsTable.querySelector('tbody');
+                tbody.innerHTML = userDetails;
+            }
+        </script>
+    </form>
+</body>
+</html>

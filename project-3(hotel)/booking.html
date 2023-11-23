@@ -1,0 +1,339 @@
+<!-- booking.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+	  background-image: url('https://mobirise.com/extensions/hotelm4/assets/images/background13-1920x1280.jpg'); /* Replace 'your-background-image.jpg' with the actual URL or path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #hotelInfo {
+            text-align: center;
+        }
+
+        #hotelImage {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        #historyContainer {
+            margin-top: 20px;
+        }
+
+        #bookingHistory {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+	table-color : #ffff00;
+        }
+
+        #bookingHistory th, #bookingHistory td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #bookingHistory th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #backButton, #clearHistoryButton {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        #roomPrice {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #cancelBookingButton {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Booking Details</h1>
+
+    <div id="hotelInfo">
+        <img id="hotelImage" src="" alt="Booked Hotel Image">
+        <p id="hotelName"></p>
+    </div>
+
+    <form id="bookingForm">
+        <label for="guestName">Guest Name:</label>
+        <input type="text" id="guestName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" required>
+
+        <label for="checkInDateA">Check-In Date:</label>
+        <input type="date" id="checkInDateA" required>
+
+        <label for="checkOutDateA">Check-Out Date:</label>
+        <input type="date" id="checkOutDateA" required>
+
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" onchange="updateRoomPrice()" required>
+            <option value="standard">Standard Room</option>
+            <option value="deluxe">Deluxe Room</option>
+            <option value="suite">Suite</option>
+        </select>
+
+        <div id="roomPrice">Room Price: $0</div>
+
+        <label for="payment">Payment:</label>
+        <input type="text" id="payment" required>
+
+        <button type="button" onclick="confirmBooking()">Confirm Booking</button>
+    </form>
+
+    <button id="backButton" onclick="goBack()">Back</button>
+    <button id="clearHistoryButton" onclick="clearBookingHistory()">Clear History</button>
+    <button id="cancelBookingButton" onclick="cancelBooking()">Cancel Booking</button>
+<span id="logoutSymbol" onclick="logout()">⚙️logout</span></h1>
+    <div id="historyContainer">
+        <h2>Booking History</h2>
+        <table id="bookingHistory">
+            <thead>
+                <tr>
+                    <th>Reference ID</th>
+                    <th>Guest Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                    <th>Room Type</th>
+                    <th>Room Price</th>
+                    <th>Payment</th>
+                    <th>Booking Status</th>
+                </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function updateRoomPrice() {
+            const roomType = document.getElementById('roomType').value;
+            let roomPrice;
+
+            // Assign prices based on room type
+            switch (roomType) {
+                case 'standard':
+                    roomPrice = 100;
+                    break;
+                case 'deluxe':
+                    roomPrice = 150;
+                    break;
+                case 'suite':
+                    roomPrice = 200;
+                    break;
+                default:
+                    roomPrice = 0;
+            }
+
+            document.getElementById('roomPrice').innerText = `Room Price: $${roomPrice}`;
+        }
+
+        function generateReferenceId() {
+            // Generate a random reference ID
+            return Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+        }
+
+        function clearBookingHistory() {
+            localStorage.removeItem('bookingHistory');
+            displayBookingHistory(); // Refresh the displayed history
+        }
+
+        function cancelBooking() {
+            // Get the last booking from history
+            const bookingHistory = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+            const lastBooking = bookingHistory[bookingHistory.length - 1];
+
+            // Check if there is a booking to cancel
+            if (lastBooking) {
+                lastBooking.bookingStatus = 'Cancelled';
+                localStorage.setItem('bookingHistory', JSON.stringify(bookingHistory));
+                displayBookingHistory(); // Refresh the displayed history
+            } else {
+                alert('No booking to cancel.');
+            }
+        }
+
+        // Function to get the hotel information from the URL
+        function getHotelInfo() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hotelName = urlParams.get('hotel');
+            const hotelImage = urlParams.get('image');
+
+            // Display the hotel name and image on the page
+            document.getElementById('hotelName').innerText = `Booked Hotel: ${hotelName}`;
+            document.getElementById('hotelImage').src = hotelImage;
+        }
+
+        // Function to confirm booking
+        function confirmBooking() {
+            const guestName = document.getElementById('guestName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const checkInDate = document.getElementById('checkInDateA').value;
+            const checkOutDate = document.getElementById('checkOutDateA').value;
+            const roomType = document.getElementById('roomType').value;
+            const payment = document.getElementById('payment').value;
+
+            // Assign prices based on room type
+            let roomPrice;
+            switch (roomType) {
+                case 'standard':
+                    roomPrice = 100;
+                    break;
+                case 'deluxe':
+                    roomPrice = 150;
+                    break;
+                case 'suite':
+                    roomPrice = 200;
+                    break;
+                default:
+                    roomPrice = 0;
+            }
+
+            // Generate a reference ID
+            const referenceId = generateReferenceId();
+
+            // Store booking details in local storage
+            const bookingDetails = {
+                referenceId,
+                guestName,
+                email,
+                phone,
+                checkInDate,
+                checkOutDate,
+                roomType,
+                roomPrice,
+                payment,
+                bookingStatus: 'Confirmed'
+            };
+
+            // Retrieve existing history or initialize an empty array
+            const bookingHistory = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+
+            // Add the new booking to the history
+            bookingHistory.push(bookingDetails);
+
+            // Update local storage
+            localStorage.setItem('bookingHistory', JSON.stringify(bookingHistory));
+
+            // Update the displayed history
+            displayBookingHistory();
+        }
+
+        // Function to display booking history
+        function displayBookingHistory() {
+            const bookingHistory = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+            const historyBody = document.getElementById('historyBody');
+
+            // Clear existing content
+            historyBody.innerHTML = '';
+
+            // Display each booking in the table
+            bookingHistory.forEach(booking => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${booking.referenceId}</td>
+                                 <td>${booking.guestName}</td>
+                                 <td>${booking.email}</td>
+                                 <td>${booking.phone}</td>
+                                 <td>${booking.checkInDate}</td>
+                                 <td>${booking.checkOutDate}</td>
+                                 <td>${booking.roomType}</td>
+                                 <td>$${booking.roomPrice}</td>
+                                 <td>${booking.payment}</td>
+                                 <td>${booking.bookingStatus}</td>`;
+                historyBody.appendChild(row);
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = function () {
+            getHotelInfo();
+            displayBookingHistory();
+        };
+    </script>
+
+    <script>
+        function logout() {
+            // Redirect to the login page
+            window.location.href = "home.html";
+        }
+
+        // ... (rest of your script, unchanged)
+    </script>
+
+</body>
+</html>

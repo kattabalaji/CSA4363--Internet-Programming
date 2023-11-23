@@ -96,12 +96,11 @@
 </head>
 <body>
     <header>
-        <h1>Buy a Cake</h1>
+        <h1>inisah Cake center</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Loginout</a></li>
             </ul>
         </nav>
     </header>
@@ -109,8 +108,7 @@
     <section id="content">
         <div id="cakes-list">
             <h2>Cake Listing</h2>
-            <!-- Cake 1 -->
-            <!-- Cake 1 -->
+        
             <div class="cake-item">
                 <img src="https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180" alt="Cake 1" class="cake-image">
                 <div class="cake-details">
@@ -120,7 +118,7 @@
                     <button onclick="addToCart('Cake 1', 520.00, 'https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180')">Order</button>
                 </div>
             </div>
-            <!-- Cake 2 -->
+       
             <div class="cake-item">
                 <img src="https://1.bp.blogspot.com/-fgw48tQoohY/UuvZ_GUr7wI/AAAAAAAAFfk/aSfXJkNx5Cg/s1600/Wedding+Cake+Hd+Photo+Gallery+(32).jpg" alt="Cake 2" class="cake-image">
                 <div class="cake-details">
@@ -130,7 +128,7 @@
                     <button onclick="addToCart('Cake 2', 1025.00, 'https://1.bp.blogspot.com/-fgw48tQoohY/UuvZ_GUr7wI/AAAAAAAAFfk/aSfXJkNx5Cg/s1600/Wedding+Cake+Hd+Photo+Gallery+(32).jpg')">Order</button>
                 </div>
             </div>
-            <!-- Cake 3 -->
+    
             <div class="cake-item">
                 <img src="https://tse3.mm.bing.net/th?id=OIP.2xdudepPKBHYQmm2UwUUnAHaF7&pid=Api&P=0&h=180" alt="Cake 3" class="cake-image">
                 <div class="cake-details">
@@ -140,7 +138,7 @@
                     <button onclick="addToCart('Cake 3', 325.00, 'https://tse3.mm.bing.net/th?id=OIP.2xdudepPKBHYQmm2UwUUnAHaF7&pid=Api&P=0&h=180')">Order</button>
                 </div>
             </div>
-            <!-- Cake 4 -->
+    
             <div class="cake-item">
                 <img src="https://wallsdesk.com/wp-content/uploads/2016/02/wedding-cake-photos.jpg" alt="Cake 4" class="cake-image">
                 <div class="cake-details">
@@ -150,7 +148,7 @@
                     <button onclick="addToCart('Cake 4', 2025.00, 'https://wallsdesk.com/wp-content/uploads/2016/02/wedding-cake-photos.jpg')">Order</button>
                 </div>
             </div>
-            <!-- Cake 5 -->
+       
             <div class="cake-item">
                 <img src="https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180" alt="Cake 5" class="cake-image">
                 <div class="cake-details">
@@ -191,10 +189,9 @@
             const cartList = document.getElementById("cart-items");
             const totalAmountElement = document.getElementById("total-amount");
 
-            // Clear previous items
+      
             cartList.innerHTML = "";
 
-            // Update cart items
             cartItems.forEach(item => {
                 const listItem = document.createElement("li");
                 listItem.innerHTML = `
@@ -204,7 +201,6 @@
                 cartList.appendChild(listItem);
             });
 
-            // Update total amount
             totalAmount = cartItems.reduce((sum, item) => sum + item.price, 0);
             totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
         }
@@ -216,12 +212,12 @@
             } else if (!deliveryAddress.trim()) {
                 alert("Please enter your delivery address.");
             } else {
-                // Implement the logic for order delivery here
+             
                 alert(`Order delivered to ${deliveryAddress}! Thank you for shopping.`);
-                // Clear the cart and update the UI
+               
                 cartItems = [];
                 updateCart();
-                // Clear the delivery address field
+         
                 document.getElementById("delivery-address").value = "";
             }
         }

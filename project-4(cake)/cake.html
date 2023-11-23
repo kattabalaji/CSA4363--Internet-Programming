@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy a Cake</title>
+    <style>
+        body {
+      
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.HIoI5CL8JL_ZM9tjSsju3QHaC7&pid=Api&rs=1&c=1&qlt=95&w=208&h=82'); /* Replace 'your-background-image-url.jpg' with the actual URL or path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+     
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: .5em;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 5;
+            width: 100%;
+        }
+
+        .cake-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .cake-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .cake-details {
+            margin-top: 10px;
+        }
+
+        #shopping-cart {
+            margin-top: 15px;
+        }
+
+        #total-amount {
+            margin-top: 10px;
+            font-weight: bold 5px;
+        }
+
+        #delivery-address {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #deliver-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buy a Cake</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="content">
+        <div id="cakes-list">
+            <h2>Cake Listing</h2>
+            <!-- Cake 1 -->
+            <!-- Cake 1 -->
+            <div class="cake-item">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180" alt="Cake 1" class="cake-image">
+                <div class="cake-details">
+                    <h3>Cake 1</h3>
+                    <p>Description: A delicious cake to celebrate your special occasions!</p>
+                    <p>Price: $520.00</p>
+                    <button onclick="addToCart('Cake 1', 520.00, 'https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180')">Order</button>
+                </div>
+            </div>
+            <!-- Cake 2 -->
+            <div class="cake-item">
+                <img src="https://1.bp.blogspot.com/-fgw48tQoohY/UuvZ_GUr7wI/AAAAAAAAFfk/aSfXJkNx5Cg/s1600/Wedding+Cake+Hd+Photo+Gallery+(32).jpg" alt="Cake 2" class="cake-image">
+                <div class="cake-details">
+                    <h3>Cake 2</h3>
+                    <p>Description: Another tasty cake for your sweet cravings!</p>
+                    <p>Price: $1025.00</p>
+                    <button onclick="addToCart('Cake 2', 1025.00, 'https://1.bp.blogspot.com/-fgw48tQoohY/UuvZ_GUr7wI/AAAAAAAAFfk/aSfXJkNx5Cg/s1600/Wedding+Cake+Hd+Photo+Gallery+(32).jpg')">Order</button>
+                </div>
+            </div>
+            <!-- Cake 3 -->
+            <div class="cake-item">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.2xdudepPKBHYQmm2UwUUnAHaF7&pid=Api&P=0&h=180" alt="Cake 3" class="cake-image">
+                <div class="cake-details">
+                    <h3>Cake 3</h3>
+                    <p>Description: Another tasty cake for your sweet cravings!</p>
+                    <p>Price: $325.00</p>
+                    <button onclick="addToCart('Cake 3', 325.00, 'https://tse3.mm.bing.net/th?id=OIP.2xdudepPKBHYQmm2UwUUnAHaF7&pid=Api&P=0&h=180')">Order</button>
+                </div>
+            </div>
+            <!-- Cake 4 -->
+            <div class="cake-item">
+                <img src="https://wallsdesk.com/wp-content/uploads/2016/02/wedding-cake-photos.jpg" alt="Cake 4" class="cake-image">
+                <div class="cake-details">
+                    <h3>Cake 4</h3>
+                    <p>Description: Another tasty cake for your sweet cravings!</p>
+                    <p>Price: $2025.00</p>
+                    <button onclick="addToCart('Cake 4', 2025.00, 'https://wallsdesk.com/wp-content/uploads/2016/02/wedding-cake-photos.jpg')">Order</button>
+                </div>
+            </div>
+            <!-- Cake 5 -->
+            <div class="cake-item">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180" alt="Cake 5" class="cake-image">
+                <div class="cake-details">
+                    <h3>Cake 5</h3>
+                    <p>Description: Another tasty cake for your sweet cravings!</p>
+                    <p>Prepared on your wish</p>
+                    <button onclick="addToCart('Cake 5', 1000.00, 'https://tse4.mm.bing.net/th?id=OIP.XZmgDPJC-SlK8FOXnQyZEQHaFc&pid=Api&P=0&h=180')">Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="shopping-cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <div>
+            <label for="delivery-address">Delivery Address:</label>
+            <input type="text" id="delivery-address" placeholder="Enter your delivery address" required>
+        </div>
+        <button id="deliver-button" onclick="deliverOrder()">Deliver</button>
+        <div id="total-amount">Total Amount: $0.00</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Buy a Cake</p>
+    </footer>
+
+    <script>
+        let cartItems = [];
+        let totalAmount = 0;
+
+        function addToCart(name, price, imagePath) {
+            cartItems.push({ name, price, imagePath });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart-items");
+            const totalAmountElement = document.getElementById("total-amount");
+
+            // Clear previous items
+            cartList.innerHTML = "";
+
+            // Update cart items
+            cartItems.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <img src="${item.imagePath}" alt="${item.name}" class="cake-image">
+                    ${item.name} - $${item.price.toFixed(2)}
+                `;
+                cartList.appendChild(listItem);
+            });
+
+            // Update total amount
+            totalAmount = cartItems.reduce((sum, item) => sum + item.price, 0);
+            totalAmountElement.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+        }
+
+        function deliverOrder() {
+            const deliveryAddress = document.getElementById("delivery-address").value;
+            if (cartItems.length === 0) {
+                alert("Your shopping cart is empty. Add items before delivering.");
+            } else if (!deliveryAddress.trim()) {
+                alert("Please enter your delivery address.");
+            } else {
+                // Implement the logic for order delivery here
+                alert(`Order delivered to ${deliveryAddress}! Thank you for shopping.`);
+                // Clear the cart and update the UI
+                cartItems = [];
+                updateCart();
+                // Clear the delivery address field
+                document.getElementById("delivery-address").value = "";
+            }
+        }
+    </script>
+</body>
+</html>

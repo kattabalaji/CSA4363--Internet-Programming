@@ -1,0 +1,107 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://muffingroup.com/blog/wp-content/uploads/2020/10/hotel.jpg'); /* Replace 'your-background-image.jpg' with the actual URL or path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .hotel {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hotel Booking</h1>
+
+    <div class="hotel" id="The Canine Suites">
+        <h2>The Canine Suites</h2>
+        <img src="https://media.cntraveler.com/photos/5841fe31e186e2555afdd5ca/master/pass/alfond-inn-cr-courtesy.jpg" alt="Hotel A Image" style="width:100%">
+        <p>Location: Bangulor</p>
+        <p>Prices: Standard Room - $100, Deluxe Room - $150, Suite - $200</p>
+        <p>Rating: 4.5/5</p>
+
+       
+
+        <a href="booking.html?hotel=The Canine Suites&image=https://media.cntraveler.com/photos/5841fe31e186e2555afdd5ca/master/pass/alfond-inn-cr-courtesy.jpg">
+            <button>Book Now</button>
+        </a>
+    </div>
+ <div class="hotel" id="Two-night Tango">
+        <h2>Two-night Tango</h2>
+        <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?cs=srgb&dl=dug-out-pool-hotel-poolside-1134176.jpg&fm=jpg" alt="Hotel A Image" style="width:100%">
+        <p>Location: Mumbai</p>
+        <p>Prices: Standard Room - $100, Deluxe Room - $150, Suite - $200</p>
+        <p>Rating: 4.7/5</p>
+
+       
+
+        <a href="booking.html?hotel=Two-night Tango&image=https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?cs=srgb&dl=dug-out-pool-hotel-poolside-1134176.jpg&fm=jpg">
+            <button>Book Now</button>
+        </a>
+    </div>
+ <div class="hotel" id="Whispering Phoenix">
+        <h2>Whispering Phoenix</h2>
+        <img src="https://media.architecturaldigest.com/photos/57e42deafe422b3e29b7e790/master/pass/JW_LosCabos_2015_MainExterior.jpg" alt="Hotel A Image" style="width:100%">
+        <p>Location: Chennai</p>
+        <p>Prices: Standard Room - $100, Deluxe Room - $150, Suite - $200</p>
+        <p>Rating: 4.3/5</p>
+
+        
+
+        <a href="booking.html?hotel=Whispering Phoenix&image=https://media.architecturaldigest.com/photos/57e42deafe422b3e29b7e790/master/pass/JW_LosCabos_2015_MainExterior.jpg">
+            <button>Book Now</button>
+        </a>
+    </div>
+    <!-- Add more hotels if needed -->
+
+</body>
+</html>

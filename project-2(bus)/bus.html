@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+ body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpapercave.com/wp/wp9185501.jpg') center/cover fixed no-repeat; /* Add your background image URL here */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to improve readability */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .booking-status {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            color: #155724;
+        }
+
+        #logoutSymbol {
+            cursor: pointer;
+        }</style>
+<body>
+    <div class="container">
+        <h1>Bus Ticket Booking</h1>
+
+        <form id="bookingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" pattern="[0-9]{10}" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+
+            <label for="busType">Bus Type:</label>
+            <select id="busType" required>
+                <option value="express">Express</option>
+                <option value="deluxe">Deluxe</option>
+                <!-- Add more options as needed -->
+            </select><br>
+
+            <label for="from">From:</label>
+            <input type="text" id="from" required><br>
+
+            <label for="to">To:</label>
+            <input type="text" id="to" required><br>
+
+            <label for="date">Date of Journey:</label>
+            <input type="date" id="date" required><br>
+
+            <button type="button" onclick="bookTicket()">Book Ticket</button>
+        </form>
+
+        <div id="bookingStatus" class="booking-status"></div>
+    </div>
+<h1><span id="logoutSymbol" onclick="logout()">⚙️logout</span></h1>
+    <script>
+        function bookTicket() {
+            // Get form values
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var busType = document.getElementById('busType').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var date = document.getElementById('date').value;
+
+            // Display booking status
+            var bookingStatus = document.getElementById('bookingStatus');
+            bookingStatus.innerHTML = `
+                <h2>Booking Status</h2>
+                <p>Name: ${name}</p>
+                <p>Phone Number: ${phone}</p>
+                <p>Email: ${email}</p>
+                <p>Bus Type: ${busType}</p>
+                <p>From: ${from}</p>
+                <p>To: ${to}</p>
+                <p>Date of Journey: ${date}</p>
+                <p>Booking Status: Confirmed</p>
+            `;
+        }
+
+    </script>
+
+</body>
+<script>
+        function logout() {
+            // Redirect to the login page
+            window.location.href = "home.html";
+        }
+
+        // ... (rest of your script, unchanged)
+    </script>
+
+</html>

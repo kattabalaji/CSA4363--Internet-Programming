@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+         <style>
+               body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    
+    </style>
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>User Details</h1>
+    </header>
+
+    <section id="food-details">
+        <h2>Food Details</h2>
+        <p>Explore the local cuisine and delicious dishes during your journey.</p>
+        <ul>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.n5kTYovUzLXXmy_FH0XVpgHaE3&pid=Api&rs=1&c=1&qlt=95&w=151&h=99" alt="Local Dish 1">
+                Local Dish 1
+                <button onclick="orderFood('Local Dish 1')">Order Now</button>
+            </li>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.jJI3bTJ-diLfKDHb9-vwmwHaE8&pid=Api&rs=1&c=1&qlt=95&w=149&h=99" alt="Local Dish 2">
+                Local Dish 2
+                <button onclick="orderFood('Local Dish 2')">Order Now</button>
+            </li>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.OM_YQDFEEZ6NPj0XapYwFgHaEo&pid=Api&rs=1&c=1&qlt=95&w=155&h=97" alt="Specialty Dessert">
+                Specialty Dessert
+                <button onclick="orderFood('Specialty Dessert')">Order Now</button>
+            </li>
+            <!-- Add more food items -->
+        </ul>
+    </section>
+
+    <section id="hotel-details">
+        <h2>Hotel Details</h2>
+        <p>Relax and unwind in comfortable accommodations at our recommended hotels.</p>
+        <ul>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.lO0gI5U0wBZMJZMv7UFlZwHaE7&pid=Api&rs=1&c=1&qlt=95&w=187&h=124" alt="Hotel A - Luxury Stay" width=300>
+                Hotel A - Luxury Stay
+                <button onclick="orderHotel('Hotel A')">Book Now</button>
+            </li>
+            <li>
+                <img src="https://tse3.mm.bing.net/th?id=OIP.mK3v1jjzO3Q9cZerxVB1BgHaEp&pid=Api&P=0&h=180" alt="Hotel B - Boutique Experience" width=300>
+                Hotel B - Boutique Experience
+                <button onclick="orderHotel('Hotel B')">Book Now</button>
+            </li>
+            <li>
+                <img src="https://tse3.mm.bing.net/th?id=OIP.KAaUsk8d0PE6M3G6mfxZKwHaDt&pid=Api&P=0&h=180" width=300>
+                Hotel C - Budget-friendly Option
+                <button onclick="orderHotel('Hotel C')">Book Now</button>
+            </li>
+            <!-- Add more hotel options -->
+        </ul>
+    </section>
+
+    <section id="route-details">
+        <h2>Route Details</h2>
+        <p>Plan your journey with our suggested routes and enjoy the scenic views along the way.</p>
+        <ul>
+            <li>Scenic Route 1 - Coastal Views</li>
+            <li>Mountain Route 2 - Majestic Peaks</li>
+            <li>Historical Route 3 - Cultural Landmarks</li>
+            <!-- Add more route options -->
+        </ul>
+    </section>
+
+    <script>
+        function orderFood(foodName) {
+            alert('Order placed for ' + foodName);
+            openBookingPage();
+        }
+
+        function orderHotel(hotelName) {
+            alert('Booking confirmed for ' + hotelName);
+            openBookingPage();
+        }
+
+    
+    </script>
+
+</body>
+</html>

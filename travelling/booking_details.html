@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Booking History</h1>
+    </header>
+
+    <section>
+        <h2>Details of Bookings</h2>
+        <table id="bookingTable">
+            <thead>
+                <tr>
+                    <th>Hotel Name</th>
+                    <th>Image Name</th>
+                    <th>Price per Night</th>
+                    <th>Guest Name</th>
+                    <th>Email</th>
+                    <th>Check-In Date</th>
+                    <th>Check-Out Date</th>
+                    <th>Total Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Booking details will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        function orderHotel(hotelName, imageAlt, pricePerNight) {
+            // Prompt for user details (guestName, email, etc.)
+            // ...
+
+            // Open booking_details.html with the required details
+            const queryString = `?hotelName=${encodeURIComponent(hotelName)}&imageAlt=${encodeURIComponent(imageAlt)}&pricePerNight=${encodeURIComponent(pricePerNight)}`;
+            window.open(`booking_details.html${queryString}`, '_blank');
+
+            // Add the booking details to the booking table in booking_history.html
+            const bookingTable = window.opener.document.getElementById('bookingTable').getElementsByTagName('tbody')[0];
+            const newRow = bookingTable.insertRow();
+            newRow.innerHTML = `<td>${hotelName}</td>
+                                <td>${imageAlt}</td>
+                                <td>${pricePerNight}</td>
+                                <td>${guestName}</td>
+                                <td>${email}</td>
+                                <td>${checkInDate}</td>
+                                <td>${checkOutDate}</td>
+                                <td>${totalPayment}</td>`;
+
+            // Inform the user about the successful booking
+            alert('Booking confirmed!');
+        }
+    </script>
+
+</body>
+</html>

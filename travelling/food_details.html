@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Food Details</h1>
+    </header>
+
+    <section>
+        <p>Explore the local cuisine and delicious dishes during your journey.</p>
+        <ul>
+            <ul>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.n5kTYovUzLXXmy_FH0XVpgHaE3&pid=Api&rs=1&c=1&qlt=95&w=151&h=99" alt="Local Dish 1">
+                Local Dish 1
+                <button onclick="orderFood('Local Dish 1')">Order Now</button>
+            </li>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.jJI3bTJ-diLfKDHb9-vwmwHaE8&pid=Api&rs=1&c=1&qlt=95&w=149&h=99" alt="Local Dish 2">
+                Local Dish 2
+                <button onclick="orderFood('Local Dish 2')">Order Now</button>
+            </li>
+            <li>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.OM_YQDFEEZ6NPj0XapYwFgHaEo&pid=Api&rs=1&c=1&qlt=95&w=155&h=97" alt="Specialty Dessert">
+                Specialty Dessert
+                <button onclick="orderFood('Specialty Dessert')">Order Now</button>
+            </li>
+            <!-- Add more food items -->
+        </ul>
+        </ul>
+    </section>
+
+</body>
+</html>

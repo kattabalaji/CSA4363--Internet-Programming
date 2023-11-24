@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Travel Agency</title>
+    <style>
+        /* Your existing styles remain unchanged */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Travel Agency</h1>
+        <p>Explore the World with Us</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Your Travel Adventure</h2>
+        <p>Discover amazing destinations and plan your next adventure with us.</p>
+    </section>
+
+    <!-- ... (other sections) ... -->
+
+    <section id="login">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="redirectToAdmin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <input type="submit" value="Login">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Travel Agency. All rights reserved.</p>
+    </footer>
+
+   <script>
+    function redirectToAdmin() {
+        // You can add logic here to check the credentials if needed
+
+        // For simplicity, I'm preventing the default form submission
+        event.preventDefault();
+
+        // Redirect to admin.html
+        window.location.href = 'user.html';
+    }
+</script>
+
+</body>
+</html>

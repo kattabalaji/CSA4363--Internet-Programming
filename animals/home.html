@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Veterinary Care</title>
+    <style>
+        /* Your existing styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #4CAF50;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Online Veterinary Care</h1>
+    </header>
+
+    <nav>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#services" onclick="showSection('services')">Services</a>
+        <a href="#appointments" onclick="showSection('appointments')">Appointments</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Online Veterinary Care</h2>
+        <p>Providing compassionate and convenient care for your beloved pets.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We offer a range of veterinary services, including:</p>
+        <ul>
+            <li>Routine Check-ups</li>
+            <li>Vaccinations</li>
+            <li>Emergency Care</li>
+            <li>Virtual Consultations</li>
+        </ul>
+    </section>
+<section id="appointments">
+        <h2>Book an Appointment</h2>
+        <p>Schedule an appointment for your pet by filling out the form below:</p>
+        <form>
+            <label for="petName">Pet Name:</label>
+            <input type="text" id="petName" name="petName" required><br>
+
+            <label for="ownerName">Your Name:</label>
+            <input type="text" id="ownerName" name="ownerName" required><br>
+
+            <label for="appointmentDate">Preferred Date:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required><br>
+
+            <input type="submit" value="Submit Appointment">
+        </form>
+    <!-- Include the following script -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+
+            // If the section is 'appointments', redirect to the appointments.html page
+            
+        }
+    </script>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us:</p>
+        <p>Email: info@onlinevetcare.com</p>
+        <p>Phone: (555) 123-4567</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Online Veterinary Care</p>
+    </footer>
+
+</body>
+</html>

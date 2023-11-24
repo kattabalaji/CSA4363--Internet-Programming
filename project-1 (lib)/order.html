@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Order Details</title>
+</head>
+<body>
+
+<header>
+    <h1>Order Details</h1>
+
+</header>
+
+<main>
+
+    <form id="deliveryForm">
+        <!-- Use JavaScript to dynamically set these values based on the selected book -->
+        <img src="" alt="Book Image" id="bookImage">
+        <label for="bookName">Book Name:</label>
+        <input type="text" id="bookName" name="bookName" readonly>
+
+        <label for="authorName">Author Name:</label>
+        <input type="text" id="authorName" name="authorName" readonly>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" readonly>
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Your Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="address">Your Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <button type="button" onclick="confirmOrder()">Confirm Order</button>
+        <button type="button" onclick="cancelOrder()">Cancel Order</button>
+    </form>
+</main>
+
+<script>
+    // Function to extract URL parameters
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Retrieve book details from URL parameter
+    var bookId = getParameterByName('bookId');
+    // Assuming you have an array of books with their details
+    var books = [
+        { id: 1, name: 'THE BOOK OF NAMES', author: 'Jill Gregory & Karen Tintori', price: '$19.99', image: 'https://tse1.mm.bing.net/th?id=OIP.mdF6LZzpcaS6QcU3MEuWnAHaLP&pid=Api&P=0&h=180' },
+        { id: 2, name: 'THE PALACE OF ILLUSIONS', author: 'Chitra Banerjee Divakaruni', price: '$24.99', image: 'https://img.theculturetrip.com/1440x/smart/wp-content/uploads/2017/08/9780330458535.jpg' },
+        { id: 3, name: 'THE THOUSAND NAMES', author: 'Diango Wexler 3', price: '$14.99', image: 'https://tse2.mm.bing.net/th?id=OIP.PJiU7H7FpSKELZGIPfUtmQHaLL&pid=Api&P=0&h=180' },
+        { id: 4, name: 'HARRY POTTER AND THE DEATHLY HALLOWS', author: 'J.K.Rowling', price: '$29.99', image: 'https://images-na.ssl-images-amazon.com/images/I/71Ui-NwYUmL.jpg' },
+        // Add more books as needed
+    ];
+
+    // Find the selected book
+    var selectedBook = books.find(function (book) {
+        return book.id == bookId;
+    });
+
+    // Set the book details in the form
+    document.getElementById('bookImage').src = selectedBook.image;
+    document.getElementById('bookName').value = selectedBook.name;
+    document.getElementById('authorName').value = selectedBook.author;
+    document.getElementById('price').value = selectedBook.price;
+
+    function confirmOrder() {
+        // Implement order confirmation logic and redirection to a thank you page
+        alert("Order confirmed! Thank you for your purchase.");
+        // Redirect to the thank you page or any other desired page
+        window.location.href = "book.html";
+    }
+
+    function cancelOrder() {
+        // Implement order cancellation logic and return to the books page
+        alert("Order cancelled.");
+        window.location.href = "book.html";
+    }
+
+        function logout() {
+            // Redirect to the login page
+            window.location.href = "home.html";
+        }
+
+        // ... (rest of your script, unchanged)
+    
+</script>
+<h1>Booking Details <span id="logoutSymbol" onclick="logout()">⚙️</span></h1>
+
+</body>
+</html>

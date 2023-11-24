@@ -1,0 +1,133 @@
+<!-- booking.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('https://mobirise.com/extensions/hotelm4/assets/images/background13-1920x1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #hotelInfo {
+            text-align: center;
+        }
+
+        #hotelImage {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        #historyContainer {
+            margin-top: 20px;
+        }
+
+        #bookingHistory {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            table-color: #ffff00;
+        }
+
+        #bookingHistory th, #bookingHistory td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #bookingHistory th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #backButton, #clearHistoryButton, #cancelBookingButton {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        #roomPrice {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #logoutSymbol {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Booking Details <span id="logoutSymbol" onclick="logout()">⚙️logout</span></h1>
+
+    <div id="hotelInfo">
+        <img id="hotelImage" src="" alt="Booked Hotel Image">
+        <p id="hotelName"></p>
+    </div>
+
+    <form id="bookingForm">
+        <!-- ... (your existing form elements) -->
+    </form>
+
+    <!-- Buttons and history container ... (unchanged) -->
+
+    <script>
+        function logout() {
+            // Redirect to the login page
+            window.location.href = "home.html";
+        }
+
+        // ... (rest of your script, unchanged)
+    </script>
+
+</body>
+</html>

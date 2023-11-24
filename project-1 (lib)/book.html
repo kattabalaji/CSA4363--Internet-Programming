@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .book {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>ISINAH Library</title>
+</head>
+<body>
+
+<header>
+    <h1>INISAH Library</h1>
+</header>
+
+<main>
+    <!-- THE BOOK OF NAMES -->
+    <div class="book">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.mdF6LZzpcaS6QcU3MEuWnAHaLP&pid=Api&P=0&h=180" alt="THE BOOK OF NAMES">
+ <h2>Book Name:: THE BOOK OF NAMES</h2>
+        <h2>Authors: Jill Gregory & Karen Tintori</h2>
+       
+ <p>Price: $19.99</p>
+        <button onclick="orderBook(1)">Order</button>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="book">
+        <img src="https://img.theculturetrip.com/1440x/smart/wp-content/uploads/2017/08/9780330458535.jpg" alt="Book 2">
+        <h2>Book Name:: THE PALACE OF ILLUSIONS</h2>
+	<h2>Author: Chitra Banerjee Divakaruni</h2>
+        <p>Price: $24.99</p>
+        <button onclick="orderBook(2)">Order</button>
+<a href="booking.html?book=Radission&image=https://img.theculturetrip.com/1440x/smart/wp-content/uploads/2017/08/9780330458535.jpg">
+         
+        </a>
+    </div>
+    <!-- Book 3 -->
+    <div class="book">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.PJiU7H7FpSKELZGIPfUtmQHaLL&pid=Api&P=0&h=180" alt="Book 3">
+        <h2>Book Name:: THE THOUSAND NAMES</h2>
+<h2>Author : Diango Wexler 3</h2>
+        <p>Price: $14.99</p>
+        <button onclick="orderBook(3)">Order</button>
+<a href="booking.html?book=Radission&image=https://tse2.mm.bing.net/th?id=OIP.PJiU7H7FpSKELZGIPfUtmQHaLL&pid=Api&P=0&h=180">
+           
+        </a>
+    </div>
+    <!-- Book 4 -->
+    <div class="book">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71Ui-NwYUmL.jpg" alt="Book 4">
+     <h2>Book Name:: HARRY POTTER AND THE DEATHLY HALLOWS</h2>    <h2>Author: J.K.Rowling</h2>
+        <p>Price: $29.99</p>
+        <button onclick="orderBook(4)">Order</button>
+<a href="booking.html?book=Radission&image=https://images-na.ssl-images-amazon.com/images/I/71Ui-NwYUmL.jpg">
+           
+        </a>
+    </div>
+ <div class="book">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71Ui-NwYUmL.jpg" alt="Book 4">
+     <h2>Book Name:: HARRY POTTER AND THE DEATHLY HALLOWS</h2>    <h2>Author: J.K.Rowling</h2>
+        <p>Price: $29.99</p>
+        <button onclick="orderBook(4)">Order</button>
+<a href="booking.html?hotel=Radission&image=https://www.hotelierindia.com/public/images/2020/02/20/Image_Radisson-Hotel-Group-Starts-2020-On-A-High-With-17-New-Hotels-In-India.jpg">
+           
+        </a>
+    </div>
+ <div class="book">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71Ui-NwYUmL.jpg" alt="Book 4">
+     <h2>Book Name:: HARRY POTTER AND THE DEATHLY HALLOWS</h2>    <h2>Author: J.K.Rowling</h2>
+        <p>Price: $29.99</p>
+        <button onclick="orderBook(4)">Order</button>
+<a href="booking.html?hotel=Radission&image=https://www.hotelierindia.com/public/images/2020/02/20/Image_Radisson-Hotel-Group-Starts-2020-On-A-High-With-17-New-Hotels-In-India.jpg">
+           
+        </a>
+    </div>
+    <!-- Add more books as needed -->
+</main>
+
+<script>
+    function orderBook(bookId) {
+        // Redirect to the order page with book details
+        window.location.href = "ORDER.html?bookId=" + bookId;
+    }
+</script>
+
+</body>
+</html>

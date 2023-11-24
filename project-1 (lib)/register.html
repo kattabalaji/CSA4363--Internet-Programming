@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://redonline.cdnds.net/main/thumbs/25788/stack_of_books.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+#registrationForm {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 300px; /* Adjust the width as needed */
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#loginLink {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    </style>
+    <title>Registration</title>
+</head>
+<body>
+    <div id="registrationForm">
+        <h1>Registration Form</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <button type="button" onclick="register()">Register</button>
+        </form>
+        
+        <div id="loginLink" onclick="redirectToLogin()">Already have an account? Login here.</div>
+    </div>
+
+    <script>
+        function register() {
+            // Add JavaScript validation and AJAX request to the server here
+            // For simplicity, this example only shows the client-side part
+            alert("Registration successful! Redirecting to the profile page.");
+            window.location.href = "home.html";
+        }
+
+        function redirectToLogin() {
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

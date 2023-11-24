@@ -1,54 +1,91 @@
-<!Doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>bus pass management system</title>
-</head>
-<body>
-<style>
-/* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
         }
 
+        #loginForm {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
 
-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-}
+        label {
+            display: block;
+            margin: 10px 0;
+        }
 
-button:hover {
-    background-color: #45a049;
-}
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
 
-form {
-    text-align: center;
-    margin-top: 50px;
-}
-</style>
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-    <!-- Admin Button -->
-    <form action="site.html">
-        <button type="submit">Admin</button>
-    </form>
+        button:hover {
+            background-color: #45a049;
+        }
 
-    <!-- User Button -->
-    <form action="site1.html">
-        <button type="submit">User</button>
-    </form>
+        #registerLink {
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body>
+    <div id="loginForm">
+        <h1>Login Form</h1>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        
+        <div id="registerLink" onclick="redirectToRegister()">Don't have an account? Register here.</div>
+    </div>
+
+    <script>
+        function login() {
+            // Add JavaScript validation and AJAX request to the server here
+            // For simplicity, this example only shows the client-side part
+            alert("Login successful! Redirecting to the blood bank page.");
+            window.location.href = "user.html";
+        }
+
+        function redirectToRegister() {
+            window.location.href = "register.html";
+        }
+    </script>
 </body>
 </html>

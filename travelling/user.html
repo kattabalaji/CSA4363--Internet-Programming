@@ -3,135 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details</title>
-    <style>
-         <style>
-               body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-    
-    </style>
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Donor Information</title>
 </head>
+<style>
+  header, nav, section, footer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.login-register {
+    display: flex;
+}
+
+.login-register a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.login-register a:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#donor-info form {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+#donor-info form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#donor-info form input,
+#donor-info form select,
+#donor-info form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#donor-info form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#donor-info form button:hover {
+    background-color: #555;
+}
+
+</style>
 <body>
 
     <header>
-        <h1>User Details</h1>
+        <h1>Blood Bank Management System</h1>
+        <div class="login-register">
+            <a href="homep.html">Logout</a>
+    
+        </div>
     </header>
 
-    <section id="food-details">
-        <h2>Food Details</h2>
-        <p>Explore the local cuisine and delicious dishes during your journey.</p>
+    <nav>
         <ul>
-            <li>
-                <img src="https://tse1.mm.bing.net/th?id=OIP.n5kTYovUzLXXmy_FH0XVpgHaE3&pid=Api&rs=1&c=1&qlt=95&w=151&h=99" alt="Local Dish 1">
-                Local Dish 1
-                <button onclick="orderFood('Local Dish 1')">Order Now</button>
-            </li>
-            <li>
-                <img src="https://tse1.mm.bing.net/th?id=OIP.jJI3bTJ-diLfKDHb9-vwmwHaE8&pid=Api&rs=1&c=1&qlt=95&w=149&h=99" alt="Local Dish 2">
-                Local Dish 2
-                <button onclick="orderFood('Local Dish 2')">Order Now</button>
-            </li>
-            <li>
-                <img src="https://tse1.mm.bing.net/th?id=OIP.OM_YQDFEEZ6NPj0XapYwFgHaEo&pid=Api&rs=1&c=1&qlt=95&w=155&h=97" alt="Specialty Dessert">
-                Specialty Dessert
-                <button onclick="orderFood('Specialty Dessert')">Order Now</button>
-            </li>
-            <!-- Add more food items -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donors.html">Donors</a></li>
+            <li><a href="#recipients">Recipients</a></li>
+            <li><a href="#inventory">Inventory</a></li>
+            <li><a href="#requests">Requests</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
+    </nav>
+
+    <section id="donor-info">
+        <h2>Donor Information</h2>
+        <form id="donor-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="blood-group">Blood Group:</label>
+            <select id="blood-group" name="blood-group" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" required>
+
+            <label for="contact">Contact:</label>
+            <input type="tel" id="contact" name="contact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <small>Format: 123-456-7890</small>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <button type="button" onclick="submitDonorInfo()">Submit</button>
+        </form>
+
+        <div id="donor-details">
+            <!-- Donor information will be dynamically loaded here -->
+        </div>
     </section>
 
-    <section id="hotel-details">
-        <h2>Hotel Details</h2>
-        <p>Relax and unwind in comfortable accommodations at our recommended hotels.</p>
-        <ul>
-            <li>
-                <img src="https://tse1.mm.bing.net/th?id=OIP.lO0gI5U0wBZMJZMv7UFlZwHaE7&pid=Api&rs=1&c=1&qlt=95&w=187&h=124" alt="Hotel A - Luxury Stay" width=300>
-                Hotel A - Luxury Stay
-                <button onclick="orderHotel('Hotel A')">Book Now</button>
-            </li>
-            <li>
-                <img src="https://tse3.mm.bing.net/th?id=OIP.mK3v1jjzO3Q9cZerxVB1BgHaEp&pid=Api&P=0&h=180" alt="Hotel B - Boutique Experience" width=300>
-                Hotel B - Boutique Experience
-                <button onclick="orderHotel('Hotel B')">Book Now</button>
-            </li>
-            <li>
-                <img src="https://tse3.mm.bing.net/th?id=OIP.KAaUsk8d0PE6M3G6mfxZKwHaDt&pid=Api&P=0&h=180" width=300>
-                Hotel C - Budget-friendly Option
-                <button onclick="orderHotel('Hotel C')">Book Now</button>
-            </li>
-            <!-- Add more hotel options -->
-        </ul>
-    </section>
+    <footer>
+        <p>&copy; 2023 Blood Bank Management System</p>
+    </footer>
 
-    <section id="route-details">
-        <h2>Route Details</h2>
-        <p>Plan your journey with our suggested routes and enjoy the scenic views along the way.</p>
-        <ul>
-            <li>Scenic Route 1 - Coastal Views</li>
-            <li>Mountain Route 2 - Majestic Peaks</li>
-            <li>Historical Route 3 - Cultural Landmarks</li>
-            <!-- Add more route options -->
-        </ul>
-    </section>
+    <script> 
+		// Sample donor information array
+let donors = [];
 
-    <script>
-        function orderFood(foodName) {
-            alert('Order placed for ' + foodName);
-            openBookingPage();
+// Function to populate donor information on the page
+function populateDonorInfo() {
+    const donorDetails = document.getElementById('donor-details');
+    donorDetails.innerHTML = '<h3>Donor Information</h3>';
+
+    if (donors.length === 0) {
+        donorDetails.innerHTML += '<p>No donor information available.</p>';
+    } else {
+        const table = document.createElement('table');
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Blood Group</th>
+                    <th>Age</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${donors.map(donor => `
+                    <tr>
+                        <td>${donor.name}</td>
+                        <td>${donor.bloodGroup}</td>
+                        <td>${donor.age}</td>
+                        <td>${donor.contact}</td>
+                        <td>${donor.address}</td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        `;
+        donorDetails.appendChild(table);
+    }
+}
+
+// Function to handle form submission
+function submitDonorInfo() {
+    const name = document.getElementById('name').value;
+    const bloodGroup = document.getElementById('blood-group').value;
+    const age = document.getElementById('age').value;
+    const contact = document.getElementById('contact').value;
+    const address = document.getElementById('address').value;
+
+    // Validate and add the donor to the array
+    if (name && bloodGroup && age && contact && address) {
+        donors.push({ name, bloodGroup, age, contact, address });
+
+        // Clear the form
+        document.getElementById('donor-form').reset();
+
+        // Update the donor information on the page
+        populateDonorInfo();
+    } else {
+        alert('Please fill in all the fields.');
+    }
+}
+
+// Initial data load
+populateDonorInfo();
+ <script>
+        function logout() {
+            // Redirect to the login page
+            window.location.href = "homep.html";
         }
 
-        function orderHotel(hotelName) {
-            alert('Booking confirmed for ' + hotelName);
-            openBookingPage();
-        }
-
-    
+        // ... (rest of your script, unchanged)
     </script>
-
+</script>
 </body>
 </html>
+

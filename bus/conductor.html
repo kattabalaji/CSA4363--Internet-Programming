@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conductor System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Conductor System</h1>
+    </header>
+
+    <section>
+        <h2>QR Code Scanner</h2>
+        <button onclick="scanQR()">Scan QR Code</button>
+    </section>
+
+    <section>
+        <h2>Verify Bus Pass</h2>
+        <button onclick="verifyBusPass()">Verify Bus Pass</button>
+    </section>
+
+    <section>
+        <h2>Verify Bus Ticket</h2>
+        <button onclick="verifyBusTicket()">Verify Bus Ticket</button>
+    </section>
+
+    <section>
+        <h2>Update Location</h2>
+        <label for="location">Current Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter current location">
+        <button onclick="updateLocation()">Update Location</button>
+    </section>
+
+    <script>
+        function scanQR() {
+            // Implement QR code scanning logic using JavaScript or a library
+            alert("Scanning QR Code...");
+        }
+
+        function verifyBusPass() {
+            // Implement logic to verify bus pass using JavaScript or communicate with a backend
+            alert("Verifying Bus Pass...");
+        }
+
+        function verifyBusTicket() {
+            // Implement logic to verify bus ticket using JavaScript or communicate with a backend
+            alert("Verifying Bus Ticket...");
+        }
+
+        function updateLocation() {
+            // Get the current location from the input field
+            var currentLocation = document.getElementById("location").value;
+
+            // Implement logic to update location using JavaScript or communicate with a backend
+            alert("Updating Location: " + currentLocation);
+        }
+    </script>
+</body>
+
+</html>

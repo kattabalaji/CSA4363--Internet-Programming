@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students - Bus Pass Management System</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Additional styles can be placed here if needed */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.student-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.student-table th, .student-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.student-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.student-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+button {
+    background-color: #ff0000; /* Red */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0000; /* Darker Red */
+}
+        
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Manage Students</h1>
+
+    <!-- Table to display student data -->
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Pass ID</th>
+                <th>From</th>
+                <th>Destination</th>
+                <th>Validity Date</th>
+                <th>Valid Pass</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data, replace this with actual student data from your system -->
+            <tr data-passid="123456">
+                <td>John Doe</td>
+                <td>123456</td>
+                <td>Station A</td>
+                <td>Station B</td>
+                <td>2023-12-01</td>
+                <td>Yes</td>
+                <td>
+                    <button onclick="deletePass(123456)">Delete Pass</button>
+                </td>
+            </tr>
+            <tr data-passid="789012">
+                <td>Jane Doe</td>
+                <td>789012</td>
+                <td>Station C</td>
+                <td>Station D</td>
+                <td>2023-12-15</td>
+                <td>No</td>
+                <td>
+                    <button onclick="deletePass(789012)">Delete Pass</button>
+                </td>
+            </tr>
+            <!-- Add more rows for additional students -->
+        </tbody>
+    </table>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Student</h2>
+            <form onsubmit="addStudent(); return false;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="passId">Pass ID:</label>
+                <input type="text" id="passId" name="passId" required><br>
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" required><br>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required><br>
+                <label for="validityDate">Validity Date:</label>
+                <input type="date" id="validityDate" name="validityDate" required><br>
+                <label for="isValid">Valid Pass:</label>
+                <select id="isValid" name="isValid" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="openModal()">Add Student</button>
+
+    <script>
+        // Function to delete a pass
+        function deletePass(passId) {
+            // Find the row with the corresponding passId and remove it
+            var row = document.querySelector('tr[data-passid="' + passId + '"]');
+            if (row) {
+                row.remove();
+                alert("Pass deleted successfully!");
+            } else {
+                alert("Pass not found!");
+            }
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('addStudentModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('addStudentModal').style.display = 'none';
+        }
+
+        // Function to add a new student
+        function addStudent() {
+            var name = document.getElementById('name').value;
+            var passId = document.getElementById('passId').value;
+            var from = document.getElementById('from').value;
+            var destination = document.getElementById('destination').value;
+            var validityDate = document.getElementById('validityDate').value;
+            var isValid = document.getElementById('isValid').value;
+
+            // Create a new row with the entered data
+            var newRow = document.createElement('tr');
+            newRow.setAttribute('data-passid', passId);
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${passId}</td>
+                <td>${from}</td>
+                <td>${destination}</td>
+                <td>${validityDate}</td>
+                <td>${isValid}</td>
+                <td>
+                    <button onclick="deletePass(${passId})">Delete Pass</button>
+                </td>
+            `;
+
+            // Append the new row to the table body
+            document.querySelector('.student-table tbody').appendChild(newRow);
+
+            // Close the modal
+            closeModal();
+
+            alert("Student added successfully!");
+        }
+    </script>
+
+</body>
+</html>

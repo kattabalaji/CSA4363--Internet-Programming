@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renew Bus Pass</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+
+background-image: url('https://wallpapercave.com/wp/wp9185501.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+          
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Renew Bus Pass</h1>
+        <p>Wallet Amount: $<span id="walletAmount">0</span></p>
+    </header>
+
+    <form id="renewalForm" onsubmit="renewBusPass(); return false;">
+         <form id="renewalForm" onsubmit="renewBusPass(); return false;">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" placeholder="Enter your address" rows="4" required></textarea>
+
+        <label for="passType">Select Pass Type:</label>
+        <select id="passType" name="passType" required>
+            <option value="Monthly">Monthly Pass</option>
+            <option value="Annual">Annual Pass</option>
+            <!-- Add more pass types as needed -->
+        </select>
+
+        <label for="duration">Select Duration:</label>
+        <select id="duration" name="duration" required>
+            <option value="1">1 Month</option>
+            <option value="3">3 Months</option>
+            <option value="6">6 Months</option>
+            <option value="12">12 Months</option>
+            <!-- Add more duration options as needed -->
+        </select>
+
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from" placeholder="Enter starting point" required>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+
+
+        <button type="submit">Renew Pass</button>
+    </form>
+
+    <!-- Display user information and renewal status in a table -->
+    <table id="renewalTable" style="display:none;">
+        <tr>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Pass Type</th>
+            <th>Pass Duration (months)</th>
+            <th>Starting Point</th>
+            <th>Destination</th>
+            <th>Status</th>
+        </tr>
+    </table>
+
+    <script>
+        var walletAmount = 0; // Initial wallet amount
+
+        // Update the wallet amount in the header
+        function updateWalletAmount() {
+            document.getElementById("walletAmount").textContent = walletAmount.toFixed(2);
+        }
+
+        function renewBusPass() {
+            var name = document.getElementById("name").value;
+            var address = document.getElementById("address").value;
+            var passType = document.getElementById("passType").value;
+            var duration = document.getElementById("duration").value;
+            var from = document.getElementById("from").value;
+            var destination = document.getElementById("destination").value;
+
+            // Deduct the cost of the pass from the wallet amount
+            var passCost = 50; // Assuming each pass costs $50 (adjust as needed)
+            walletAmount -= passCost;
+
+            // Update the displayed wallet amount
+            updateWalletAmount();
+
+            // Display user information and renewal status in the table
+            displayRenewalInfo(name, address, passType, duration, from, destination, "Renewed");
+        }
+
+        function displayRenewalInfo(name, address, passType, duration, from, destination, status) {
+            // Display user information and renewal status in the table
+            var table = document.getElementById("renewalTable");
+            var newRow = table.insertRow(-1);
+
+            var cells = [
+                name,
+                address,
+                passType,
+                duration,
+                from,
+                destination,
+                status
+            ];
+
+            for (var i = 0; i < cells.length; i++) {
+                var cell = newRow.insertCell(i);
+                cell.textContent = cells[i];
+            }
+
+            // Show the table
+            table.style.display = "table";
+        }
+
+        // Initial update of the wallet amount
+        updateWalletAmount();
+    </script>
+</body>
+
+</html>

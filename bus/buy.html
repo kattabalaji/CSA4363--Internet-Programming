@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Bus Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+background-image: url('https://wallpapercave.com/wp/wp9185501.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Buy Bus Ticket</h1>
+        <p>Wallet Amount: $<span id="walletAmount">0</span></p>
+    </header>
+
+    <form id="ticketForm" onsubmit="buyBusTicket(); return false;">
+        <label for="from">From:</label>
+        <select id="from" name="from" required>
+            <option value="Station A">Station A</option>
+            <option value="Station B">Station B</option>
+            <option value="Station C">Station C</option>
+            <!-- Add more from options as needed -->
+        </select>
+
+        <label for="destination">Select Destination:</label>
+        <select id="destination" name="destination" required>
+            <option value="Station A">Station A</option>
+            <option value="Station B">Station B</option>
+            <option value="Station C">Station C</option>
+            <!-- Add more destination options as needed -->
+        </select>
+
+        <label for="numTickets">Number of Tickets:</label>
+        <input type="number" id="numTickets" name="numTickets" placeholder="Enter the number of tickets" required>
+
+        <button type="submit">Buy Ticket</button>
+    </form>
+
+    <script>
+        var walletAmount = 100; // Initial wallet amount
+
+        // Update the wallet amount in the header
+        function updateWalletAmount() {
+            document.getElementById("walletAmount").textContent = walletAmount.toFixed(2);
+        }
+
+        function buyBusTicket() {
+            var from = document.getElementById("from").value;
+            var destination = document.getElementById("destination").value;
+            var numTickets = document.getElementById("numTickets").value;
+
+            // Implement logic to process the bus ticket purchase
+            // For simplicity, we'll just display an alert with the details
+            alert("Bus ticket purchased from " + from + " to " + destination + ". Number of tickets: " + numTickets);
+
+            // Deduct the cost of the ticket from the wallet amount
+            var ticketCost = 10; // Assuming each ticket costs $10 (adjust as needed)
+            walletAmount -= ticketCost * numTickets;
+
+            // Update the displayed wallet amount
+            updateWalletAmount();
+        }
+
+        // Initial update of the wallet amount
+        updateWalletAmount();
+    </script>
+</body>
+
+</html>

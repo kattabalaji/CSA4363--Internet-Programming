@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+background-image: url('https://wallpapercave.com/wp/wp9185501.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>User Interface</h1>
+        <p>Wallet Amount: $<span id="walletAmount">0</span></p>
+    </header>
+
+    <section>
+        <h2>Add Money to Wallet</h2>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" placeholder="Enter amount">
+        <button onclick="addMoneyToWallet()">Add Money to Wallet</button>
+    </section>
+
+    <section>
+        <h2>Buy Bus Ticket</h2>
+        <button onclick="openBuyPage()">Buy Bus Ticket</button>
+    </section>
+
+    <section>
+        <h2>Apply for New Bus Pass</h2>
+        <button onclick="openApplyPage()">Apply for New Bus Pass</button>
+    </section>
+
+    <section>
+        <h2>Renew Bus Pass</h2>
+        <button onclick="openRenewalPage()">Renew Bus Pass</button>
+    </section>
+
+    <section>
+        <h2>Get QR Code</h2>
+        <button onclick="getQRCode()">Get QR Code</button>
+    </section>
+
+    <script>
+        var walletAmount = 0; // Initial wallet amount
+
+        // Update the wallet amount in the header
+        function updateWalletAmount() {
+            document.getElementById("walletAmount").textContent = walletAmount.toFixed(2);
+        }
+
+        function addMoneyToWallet() {
+            // Get the amount from the input field
+            var amount = parseFloat(document.getElementById("amount").value);
+
+            // Check if the entered amount is valid
+            if (!isNaN(amount) && amount > 0) {
+                // Update the wallet amount
+                walletAmount += amount;
+
+                // Update the displayed amount
+                updateWalletAmount();
+
+                // Implement additional logic if needed
+                alert("Adding $" + amount.toFixed(2) + " to the wallet.");
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+
+        function openBuyPage() {
+            // Implement logic to open the "buy.html" page
+            window.location.href = 'buy.html';
+        }
+
+        function openApplyPage() {
+            // Implement logic to open the "apply.html" page
+            window.location.href = 'apply.html';
+        }
+
+        function openRenewalPage() {
+            // Implement logic to open the "renewal.html" page
+            window.location.href = 'renewal.html';
+        }
+
+        function getQRCode() {
+            // Implement logic to get a QR code using JavaScript or communicate with a backend
+            alert("Getting QR Code...");
+        }
+
+        // Initial update of the wallet amount
+        updateWalletAmount();
+    </script>
+</body>
+
+</html>
